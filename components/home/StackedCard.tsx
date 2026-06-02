@@ -29,10 +29,11 @@ export default function StackedCards({ images }: StackedCardsProps) {
               key={index}
               className={`
                 relative 
-                w-40 h-52 sm:w-48 sm:h-64 md:w-56 md:h-72
+                w-28 h-36 sm:w-48 sm:h-64 md:w-56 md:h-72
                 rounded-2xl overflow-hidden shadow-xl border border-white/20
                 hover:scale-110 hover:z-50 hover:rotate-0
                 ${rotationClass}
+                ${index > 1 ? 'hidden sm:block' : ''}
               `}
               // Dynamically increase z-index so cards stack cleanly from left to right
               style={{ zIndex: index + 1 }}

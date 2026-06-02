@@ -77,8 +77,8 @@ export default function Footer() {
           </p>
           <div className="flex gap-4 text-[11px] font-mono text-zinc-400 dark:text-zinc-500">
             <span>Built by Abid Akhras</span>
-            <span className="text-zinc-200 dark:text-zinc-800">|</span>
-            <span>abidakhrs@gmail.com</span>
+            <span className="hidden sm:inline text-zinc-200 dark:text-zinc-800">|</span>
+            <span className="hidden sm:inline">abidakhrs@gmail.com</span>
           </div>
         </div>
 

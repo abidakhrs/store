@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/app/globals.css";
 import { CartProvider } from "@/context/CartContext";
+import { ThemeProvider } from "@/context/ThemeContext";
 import GlobalCartDrawerWrapper from "@/components/cart/GlobalCartDrawerWrapper";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -20,19 +21,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.className} bg-white dark:bg-[#0a0a0a]`}>
-        <CartProvider>
-          {/* Global Navbar */}
-          <Navbar />
-          
-          {children}
+      <body className={inter.className}>
+        <ThemeProvider>
+          <CartProvider>
+            {/* Global Navbar */}
+            <Navbar />
 
-          {/* Global Footer */}
-          <Footer />
+            {children}
 
-          {/* The Global Cart Drawer UI element */}
-          <GlobalCartDrawerWrapper />
-        </CartProvider>
+            {/* Global Footer */}
+            <Footer />
+
+            {/* The Global Cart Drawer UI element */}
+            <GlobalCartDrawerWrapper />
+          </CartProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

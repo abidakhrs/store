@@ -95,10 +95,10 @@ export default function HomePage() {
         <StackedCards images={heroImages} />
 
         <div className="flex gap-4 mt-8">
-          <button className="bg-black text-white px-6 py-3 rounded-full hover:bg-gray-800 transition">
+          <button className="bg-black text-white px-6 py-3 rounded-full hover:bg-gray-800 transition dark:bg-white dark:text-black dark:hover:bg-gray-200">
             Get started
           </button>
-          <button className="bg-zinc-100 text-zinc-700 px-6 py-3 rounded-full transition-colors hover:bg-zinc-200 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800">
+          <button className="hidden sm:block bg-zinc-100 text-zinc-700 px-6 py-3 rounded-full transition-colors hover:bg-zinc-200 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800">
             Explore
           </button>
         </div>
@@ -135,7 +135,7 @@ export default function HomePage() {
           </div>
 
           {/* Right Side: Edge-to-Edge Image Box */}
-          <div className="relative w-full lg:w-[50%] min-h-screen lg:h-[650px]">
+          <div className="relative w-full lg:w-[50%] h-[300px] sm:h-[450px] lg:h-[650px]">
             {/* Next.js Optimized Image */}
             <Image
               src="/what-we-do.jpg"

@@ -64,7 +64,7 @@ export default function StorePage() {
           <h1 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-4xl">
             Catalog
           </h1>
-          <p className="text-sm text-zinc-500 dark:text-zinc-400">
+          <p className="hidden sm:block text-sm text-zinc-500 dark:text-zinc-400">
             Discover our wide range of high-quality products.
           </p>
         </div>

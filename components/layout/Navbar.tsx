@@ -5,11 +5,19 @@ import { ShoppingCart, Moon, Sun } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
+import { useTheme } from "@/context/ThemeContext";
 
 export default function Navbar() {
-  const isDark = false;
+  const { theme, toggleTheme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const { setIsCartOpen, cartCount } = useCart();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isDark = theme === "dark";
 
   // Detect any downward scroll movement from the absolute top
   useEffect(() => {
@@ -28,7 +36,7 @@ export default function Navbar() {
   return (
     <nav className="fixed top-6 left-1/2 z-50 w-[90%] max-w-6xl -translate-x-1/2">
       <div
-        className={`relative flex items-center justify-between rounded-2xl px-6 py-4 transition-all duration-300 ease-in-out ${
+        className={`relative flex items-center justify-between rounded-2xl px-4 py-3 sm:px-6 sm:py-4 transition-all duration-300 ease-in-out ${
           isScrolled
             ? "bg-white/70 dark:bg-[#0a0a0a]/70 backdrop-blur-md border border-zinc-200/50 dark:border-zinc-800/50 shadow-lg shadow-black/[0.03]"
             : "bg-transparent border-transparent"
@@ -88,8 +96,13 @@ export default function Navbar() {
           </button>
 
           {/* Theme Toggle Button */}
-          <button className="rounded-xl p-2 text-zinc-700 dark:text-zinc-300 transition hover:bg-black/5 dark:hover:bg-white/10">
-            {isDark ? (
+          <button 
+            onClick={toggleTheme}
+            className="rounded-xl p-2 text-zinc-700 dark:text-zinc-300 transition hover:bg-black/5 dark:hover:bg-white/10"
+          >
+            {!mounted ? (
+              <div className="h-5 w-5" /> // Placeholder to space same as icons
+            ) : isDark ? (
               <Sun className="h-5 w-5" />
             ) : (
               <Moon className="h-5 w-5" />
